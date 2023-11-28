@@ -1,3 +1,4 @@
+disp("Keyboard Motor Running");
 global key
 
 InitKeyboard();
@@ -7,33 +8,37 @@ while (1)
     switch key
         case 'uparrow'
             %disp ("Up arrow pressed");
-            brick.MoveMotorAngleRel('A', 100, 360, 'Coast');
-            brick.MoveMotorAngleRel('B', 100, 360, 'Coast');
+            brick.MoveMotorAngleRel('A', 20, 360, 'Coast');
+            brick.MoveMotorAngleRel('B', 20, 360, 'Coast');
+            
             
         case 'downarrow'
             %disp("Down arrow pressed");
-            brick.MoveMotorAngleRel('A', 100, -360, 'Coast');
-            brick.MoveMotorAngleRel('B', 100, -360, 'Coast');
+            brick.MoveMotorAngleRel('A', 20, -360, 'Coast');
+            brick.MoveMotorAngleRel('B', 20, -360, 'Coast');
+            
             
         case 'rightarrow'
             %disp("left arrow pressed");q
             brick.ResetMotorAngle('A');
-            brick.MoveMotorAngleRel('A', 55, 90, 'Brake');
+            brick.MoveMotorAngleRel('A', 20, 90, 'Brake');
+            
             
         case 'leftarrow'
             brick.ResetMotorAngle('B');
-            brick.MoveMotorAngleRel('B', 55, 90, 'Brake');
+            brick.MoveMotorAngleRel('B', 20, 90, 'Brake');
+            
             
         
-        case 'r'
+        case 'r' %crane up
             brick.ResetMotorAngle('D');
-            brick.MoveMotorAngleRel('D', 20, 90, 'Brake');
+            brick.MoveMotorAngleRel('D', 10, 45, 'Brake');
         
-        case 't'
+        case 't' %crane down
             brick.ResetMotorAngle('D');
-            brick.MoveMotorAngleRel('D', 20, -90, 'Brake');
+            brick.MoveMotorAngleRel('D', 10, -45, 'Brake');
         
-        case 'q'
+        case 'q' %quit program
             brick.StopMotor('B');
             brick.StopMotor('A')
             break;
